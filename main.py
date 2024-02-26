@@ -1,4 +1,5 @@
 import sys
+import os
 import requests
 from dotenv import dotenv_values
 
@@ -14,12 +15,13 @@ def main():
     if len(sys.argv) < 2:
         print("Usage: python script.py arg1 arg2 ...")
         return
-
-    env_vars = dotenv_values(".env")
+    absolute_path = os.path.abspath(__file__)
+    directory_path = os.path.dirname(absolute_path)    
+    env_vars = dotenv_values(f"{directory_path}/.env")
 
     # Получаем переданные аргументы
     args = sys.argv[1:]
-    text_message = f"Торрент {args[1]} скачан"
+    text_message = f"Торрент {args} скачан"
     telegram_notication(
         bot_token=env_vars["BOT_TOKEN"],
         chat_id=env_vars["MESSAGE_TO"],
