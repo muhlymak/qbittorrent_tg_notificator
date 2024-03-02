@@ -16,7 +16,7 @@ def main():
         print("Usage: python script.py arg1 arg2 ...")
         return
     absolute_path = os.path.abspath(__file__)
-    directory_path = os.path.dirname(absolute_path)    
+    directory_path = os.path.dirname(absolute_path)
     env_vars = dotenv_values(f"{directory_path}/.env")
 
     # Получаем переданные аргументы
