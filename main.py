@@ -5,6 +5,9 @@ from dotenv import dotenv_values
 
 
 def telegram_notication(bot_token, chat_id, text_message) -> None:
+    """
+    Отправляет сообщение юзеру с {chat_id}
+    """
     url = f"https://api.telegram.org/bot{bot_token}/sendMessage"
     data = {"chat_id": chat_id, "text": text_message}
     requests.post(url, data=data)
