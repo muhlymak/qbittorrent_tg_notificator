@@ -4,7 +4,7 @@ import requests
 from dotenv import dotenv_values
 
 
-def telegram_notication(bot_token, chat_id, text_message) -> None:
+def telegram_notification(bot_token: str, chat_id: str, text_message: str) -> None:
     """
     Отправляет сообщение юзеру с {chat_id}
     """
@@ -25,12 +25,13 @@ def main():
     # Получаем переданные аргументы
     args = sys.argv[1:]
     text_message = f"Торрент {args} скачан"
-    telegram_notication(
-        bot_token=env_vars["BOT_TOKEN"],
-        chat_id=env_vars["MESSAGE_TO"],
+    telegram_notification(
+        bot_token=str(env_vars["BOT_TOKEN"]),
+        chat_id=str(env_vars["MESSAGE_TO"]),
         text_message=text_message,
     )
 
 
 if __name__ == "__main__":
     main()
+    
