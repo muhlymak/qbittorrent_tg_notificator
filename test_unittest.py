@@ -3,8 +3,8 @@ import unittest
 import requests
 
 
-class Test(TestCase):
-    def test(self):
+class MyTest(TestCase):
+    def test_google(self):
         self.assertEqual(requests.get("https://google.com").status_code, 200)
 
 
